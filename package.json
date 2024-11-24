@@ -12,15 +12,23 @@
     "nodemailer": "^6.9.16",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.0.1"
+    "react-router-dom": "^7.0.1",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon backend/server.js",
-    "client": "react-scripts start"
-}
-
+    "server": "nodemon --experimental-specifier-resolution=node backend/server.mjs",
+    "client": "npm start --prefix frontend"
+  },
+  "name": "ddp_proyectofinal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module"
 }

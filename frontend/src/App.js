@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -9,9 +9,9 @@ import Contact from './components/Contact';
 import CharacterSheet from './components/CharacterSheet';
 
 function App() {
-    const location = useLocation(); // Hook de react-router-dom para obtener la ubicación actual
+    const location = useLocation(); // Hook para obtener la ruta actual
 
-    // Ocultar Navbar en Login y Registro
+    // Mostrar u ocultar Navbar según la ruta
     const showNavbar = !(location.pathname === "/" || location.pathname === "/register");
 
     return (
@@ -29,12 +29,6 @@ function App() {
     );
 }
 
-function AppWrapper() {
-    return (
-        <Router>
-            <App />
-        </Router>
-    );
-}
+export default App;
 
-export default AppWrapper;
+

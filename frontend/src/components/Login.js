@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
 const handleLogin = async (e) => {
     e.preventDefault();
+    console.log('Intento de inicio de sesión:', { email, password });
+    // Aquí puedes añadir lógica para enviar los datos al backend
 
     try {
         const response = await axios.post('http://localhost:5000/auth/login', {
@@ -42,6 +48,7 @@ const handleLogin = async (e) => {
             </p>
         </form>
     );
+}
 }
 
 export default Login;
