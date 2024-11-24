@@ -1,12 +1,20 @@
 import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
-
+import fileUpload from 'express-fileupload';
+import apiRouter from './routes/api'
 import characterRoutes from './routes/characterRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
 import newsRoutes from './routes/newsRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 
+
+app.use('/api', cors(), apiRouter);
+
+app.use(fileUpload({
+    useTempFiles: true,
+    tempFileDir: '/tmp/'
+}));
 /*
 const express = require('express');
 const cors = require('cors');

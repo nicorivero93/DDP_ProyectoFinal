@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 26-10-2024 a las 12:25:14
+-- Tiempo de generación: 24-11-2024 a las 03:39:13
 -- Versión del servidor: 8.3.0
 -- Versión de PHP: 8.2.18
 
@@ -50,6 +50,20 @@ CREATE TABLE IF NOT EXISTS `habilidades` (
   `nivel_requerido` int DEFAULT NULL,
   PRIMARY KEY (`id_habilidad`),
   UNIQUE KEY `nombre_habilidad` (`nombre_habilidad`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `novedades`
+--
+
+DROP TABLE IF EXISTS `novedades`;
+CREATE TABLE IF NOT EXISTS `novedades` (
+  `id` int NOT NULL,
+  `titulo` varchar(250) NOT NULL,
+  `subtitulo` text NOT NULL,
+  `cuerpo` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -115,7 +129,7 @@ INSERT INTO `personaje_habilidades` (`id_personaje`, `id_habilidad`) VALUES
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id_usuario` int NOT NULL,
-  `nombre_usuario` varchar(50) DEFAULT NULL,
+  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -124,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `email`, `password`) VALUES
+INSERT INTO `usuarios` (`id_usuario`, `username`, `email`, `password`) VALUES
 (0, 'Dohko', 'lucasrivero93@gmail.com', 'dohko123');
 COMMIT;
 
