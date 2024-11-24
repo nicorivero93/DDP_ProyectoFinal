@@ -8,8 +8,7 @@ function Navbar() {
                 <li><Link to="/rol">Rol</Link></li>
                 <li><Link to="/news">Novedades</Link></li>
                 <li><Link to="/contact">Contacto</Link></li>
-                <li><Link to="/character">Hoja de Personaje</Link></li>
-                <li><Link to="/">Logout</Link></li>
+                <li><Link to="/character">Hoja de Personaje</Link></li>                
             </ul>
         </nav>
     );
