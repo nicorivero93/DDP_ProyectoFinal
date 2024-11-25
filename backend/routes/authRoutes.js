@@ -1,9 +1,0 @@
-import express from 'express';
-import authController from '../controllers/authController.js';
-
-//const express = require('express');
-const router = express.Router();
-//const authController = require('../controllers/authController');
-
-
-module.exports = router;

@@ -1,11 +1,15 @@
-const mysql = require('mysql2');
+import mysql from 'mysql2/promise';
 
-const db = mysql.createConnection({
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'admin',
-    password: process.env.DB_PASSWORD || 'k(4wIG2w.jPDqU1X',
-    database: process.env.DB_NAME || 'dnd_game',
-    port: process.env.DB_PORT || 3306
+const db = mysql.createPool({
+    host: 'localhost',
+    user: 'admin',
+    password: 'k(4wIG2w.jPDqU1X',
+    database: 'dnd_game',
 });
 
-module.exports = db;
+export async function query(sql, params) {
+    const [rows] = await db.execute(sql, params);
+    return rows;
+}
+
+export default db;

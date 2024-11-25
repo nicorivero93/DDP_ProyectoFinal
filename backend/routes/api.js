@@ -1,31 +1,35 @@
 import express from 'express';
-import novedadesModel from './../models/novedadesModel';
-var router = express.Router();
-var cloudinary = require('cloudinary').v2;
+import novedadesModel from '../models/novedadesModel.js';
 
-router.get('/novedades', async function (req, res, next) {
-    let novedades = await novedadesModel.getNovedades();
+const router = express.Router();
 
-    novedades = novedades.map(novedades => {
-        if (novedades.img_id) {
-            const imagen = cloudinary.url(novedades.img_id, {
-                width: 960,
-                height: 200,
-                crop: 'fill'
-            });
-            return {
-                ...novedades,
-                imagen
-            }
-        } else {
-            return {
-                ...novedades,
-                imagen: ''
-            }
-        }
-    });
-
-    res.json(novedades);    
+router.get('/novedades', async (req, res) => {
+    try {
+        const novedades = await novedadesModel.getNovedades();
+        res.json(novedades);
+    } catch (error) {
+        res.status(500).send("Error al obtener novedades");
+    }
 });
 
-module.exports = router;
+router.post('/novedades', async (req, res) => {
+    try {
+        const nuevaNovedad = req.body;
+        await novedadesModel.insertNovedad(nuevaNovedad);
+        res.status(201).send("Novedad agregada con éxito");
+    } catch (error) {
+        res.status(500).send("Error al agregar novedad");
+    }
+});
+
+router.delete('/novedades/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await novedadesModel.deleteNovedadById(id);
+        res.send("Novedad eliminada");
+    } catch (error) {
+        res.status(500).send("Error al eliminar novedad");
+    }
+});
+
+export default router;

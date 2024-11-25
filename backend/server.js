@@ -2,28 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
 import fileUpload from 'express-fileupload';
-import apiRouter from './routes/api'
-import characterRoutes from './routes/characterRoutes.js';
+import apiRouter from './routes/api.js';
 import contactRoutes from './routes/contactRoutes.js';
 import newsRoutes from './routes/newsRoutes.js';
-import authRoutes from './routes/authRoutes.js';
-
-
-app.use('/api', cors(), apiRouter);
-
-app.use(fileUpload({
-    useTempFiles: true,
-    tempFileDir: '/tmp/'
-}));
-/*
-const express = require('express');
-const cors = require('cors');
-const db = require('./db');
-const authRoutes = require('./routes/authRoutes');
-const characterRoutes = require(__dirname + '/routes/characterRoutes');
-const newsRoutes = require('./routes/newsRoutes');
-const contactRoutes = require('./routes/contactRoutes');
-*/
 
 config();
 
@@ -32,8 +13,19 @@ const corsOptions = {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization'] // Headers permitidos
 };
+
+app.use(cors({ 
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    credentials: true }));
+
+app.use('/api', apiRouter);
+
+app.use(fileUpload({
+    useTempFiles: true,
+    tempFileDir: '/tmp/'
+}));
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // Permitir solo frontend
@@ -43,20 +35,15 @@ app.use((req, res, next) => {
     next();
 });
 
-
 app.use(cors(corsOptions));
 
 app.use(express.json());
 
-app.use('/auth', authRoutes);
-app.use('/characters', characterRoutes);
 app.use('/news', newsRoutes);
 app.use('/contact', contactRoutes);
 
 const PORT = process.env.PORT || 5000;
 
-db.connect(err => {
-    if (err) throw err;
-    console.log('Database connected!');
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
