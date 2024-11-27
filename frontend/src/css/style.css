@@ -1,0 +1,394 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: 'Garamond', serif;
+    background-color: #1e1e1e;
+    color: #e0d6b4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenedor general */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilo del encabezado */
+h1, h2, h3 {
+    font-family: 'Georgia', serif;
+    color: #d4af37;
+    text-align: center;
+}
+
+/* Navbar */
+/* Navbar con ancho fijo */
+nav {
+    width: 100%;
+    max-width: max-content; /* Fija un ancho m�ximo para el nav */
+    background-color: #444;
+    padding: 10px 0;
+    margin: 0 auto;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    nav ul {
+        display: flex;
+        gap: 20px;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        nav ul li {
+            font-size: 18px;
+        }
+
+            nav ul li a {
+                color: #e0d6b4;
+                text-decoration: none;
+                padding: 8px 15px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+                nav ul li a:hover {
+                    background-color: #555;
+                    color: #d4af37;
+                }
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #1e1e1e; /* Gris oscuro */
+    border-bottom: 2px solid #b30e0e; /* Rojo sangre */
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    font-size: 18px;
+    color: #f5f5f5;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #b30e0e; /* Fondo rojo sangre al pasar */
+}
+
+/* Botones */
+button, .button {
+    background-color: #d4af37;
+    color: #1e1e1e;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    button:hover, .button:hover {
+        background-color: #e0b846;
+    }
+
+/* Formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #555;
+        background-color: #333;
+        color: #e0d6b4;
+        border-radius: 5px;
+    }
+
+        form input:focus, form textarea:focus {
+            border-color: #d4af37;
+            outline: none;
+        }
+
+/* Estilo para mensajes y notificaciones */
+.alert {
+    padding: 10px;
+    background-color: #d9534f;
+    color: #ffffff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success {
+    background-color: #5cb85c;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #555;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    color: #e0d6b4;
+}
+
+th {
+    background-color: #444;
+}
+
+td {
+    background-color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #444;
+}
+
+/* Links */
+a {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+        color: #e0b846;
+    }
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    color: #555;
+}
+
+/* P�gina Login y Registro - Sin Navbar */
+.login-page, .register-page {
+    max-width: 500px;
+    width: 90%;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+    margin-top: 50px;
+}
+
+/* Mapa del juego */
+.map-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+    .map-container img {
+        max-width: 100%;
+        border: 5px solid #d4af37;
+        border-radius: 10px;
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container, .login-page, .register-page {
+        width: 95%;
+    }
+}
+
+
+    /* Cambiar estilo al pasar el mouse */
+    .register-link:hover {
+        background-color: #d4af37;
+        color: #1e1e1e; /* Cambia el color del texto */
+        text-decoration: none;
+    }
+
+    .rol-container {
+        text-align: center;
+        max-width: 600px;
+        margin: 80px auto 0; /* Asegura que todo el contenido está centrado */
+    }
+    
+    .settings {
+        display: flex;
+        flex-direction: column; /* Alinea los elementos en columna */
+        align-items: center; /* Centra los elementos horizontalmente */
+        margin: 20px 0;
+    }
+    
+    .settings label {
+        font-size: 16px;
+        margin: 10px 0; /* Espaciado entre las etiquetas */
+        text-align: center;
+    }
+    
+    button {
+        background-color: #b58900; /* Color amarillo dorado */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 20px 0;
+        border-radius: 5px;
+    }
+    
+    button:hover {
+        background-color: #d7a019; /* Color más claro al pasar el ratón */
+    }
+    /* General */
+body {
+    margin: 0;
+    font-family: 'Uncial Antiqua', serif; /* Busca una fuente gótica similar */
+    background-color: #121212; /* Negro intenso */
+    color: #f5f5f5; /* Gris claro */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #b30e0e; /* Rojo sangre */
+    text-shadow: 0px 0px 8px #ff0000; /* Brillo rojo leve */
+}
+
+a {
+    color: #f0a500; /* Dorado */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ff4500; /* Naranja fuerte */
+}
+
+
+
+/* Formularios */
+form {
+    background-color: #1e1e1e;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid #b30e0e;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ff0000;
+}
+
+form h2 {
+    text-align: center;
+    color: #f5f5f5;
+}
+
+form input, form textarea, form button {
+    width: calc(100% - 20px);
+    margin: 10px 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #b30e0e;
+    border-radius: 5px;
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+form button {
+    background-color: #b30e0e;
+    color: #f5f5f5;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #ff4500;
+}
+
+/* Botones */
+button {
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 18px;
+    background-color: #b30e0e;
+    color: #f5f5f5;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff4500;
+}
+
+/* Mapa */
+img {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #b30e0e;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #ff0000;
+}
+
+/* Novedades */
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+ul li {
+    background-color: #1e1e1e;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #b30e0e;
+    border-radius: 5px;
+}
+
+ul li h3 {
+    color: #f0a500; /* Dorado */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    border-top: 2px solid #b30e0e;
+}
